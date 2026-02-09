@@ -10,30 +10,32 @@ function nextScreen(screenNumber) {
     }
 }
 
-function moveButton() {
-    const noBtn = document.getElementById('no-btn');
+function moveButton(buttonId) {
+    const btn = document.getElementById(buttonId);
+    if (!btn) return;
+
     const container = document.querySelector('.container');
-    
+
     // Get dimensions
     const containerRect = container.getBoundingClientRect();
-    const btnRect = noBtn.getBoundingClientRect();
-    
+    const btnRect = btn.getBoundingClientRect();
+
     // Calculate new position within the container bounds
     // We deduct button width/height to ensure it stays fully inside
     const maxX = containerRect.width - btnRect.width;
     const maxY = containerRect.height - btnRect.height;
-    
+
     const randomX = Math.floor(Math.random() * maxX);
     const randomY = Math.floor(Math.random() * maxY);
-    
+
     // Set position to absolute to allow free movement within the relative container
-    noBtn.style.position = 'absolute';
-    noBtn.style.left = `${randomX}px`;
-    noBtn.style.top = `${randomY}px`;
+    btn.style.position = 'absolute';
+    btn.style.left = `${randomX}px`;
+    btn.style.top = `${randomY}px`;
 }
 
 function acceptProposal() {
-    nextScreen(5);
+    nextScreen(11); // Updated to Screen 11 (Success)
     launchConfetti();
     createFloatingHearts();
 }
@@ -47,7 +49,7 @@ function launchConfetti() {
         return Math.random() * (max - min) + min;
     }
 
-    const interval = setInterval(function() {
+    const interval = setInterval(function () {
         const timeLeft = animationEnd - Date.now();
 
         if (timeLeft <= 0) {
@@ -69,7 +71,7 @@ function createFloatingHearts() {
         heart.style.left = Math.random() * 100 + 'vw';
         heart.style.animationDuration = Math.random() * 2 + 3 + 's';
         document.body.appendChild(heart);
-        
+
         setTimeout(() => {
             heart.remove();
         }, 5000);
@@ -78,3 +80,32 @@ function createFloatingHearts() {
 
 // Initial background hearts
 createFloatingHearts();
+
+// YouTube Player API
+var player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('youtube-player', {
+        height: '0',
+        width: '0',
+        videoId: 'iYC0aAur79A', // Morni Banke
+        playerVars: {
+            'autoplay': 0,
+            'controls': 0,
+            'loop': 1,
+            'playlist': 'iYC0aAur79A' // Required for loop to work
+        },
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
+
+function onPlayerReady(event) {
+    // Player ready, waiting for user interaction
+}
+
+function playMusic() {
+    if (player && player.playVideo) {
+        player.playVideo();
+    }
+}
