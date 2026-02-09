@@ -1,3 +1,5 @@
+let canRunaway = false;
+
 function nextScreen(screenNumber) {
     // Hide all screens
     const screens = document.querySelectorAll('.screen');
@@ -8,9 +10,20 @@ function nextScreen(screenNumber) {
     if (targetScreen) {
         targetScreen.classList.add('active');
     }
+
+    // Reset runaway flag
+    canRunaway = false;
+
+    // Enable runaway after delay (wait for animation)
+    if (screenNumber === 10) {
+        setTimeout(() => {
+            canRunaway = true;
+        }, 800);
+    }
 }
 
 function moveButton(buttonId) {
+    if (!canRunaway) return;
     const btn = document.getElementById(buttonId);
     if (!btn) return;
 
