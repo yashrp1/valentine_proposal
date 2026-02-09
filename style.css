@@ -65,10 +65,16 @@ body::after {
     border-radius: 30px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 5px rgba(255, 255, 255, 0.4);
     text-align: center;
-    max-width: 90%;
-    width: 420px;
+    max-width: 95%;
+    width: 600px;
+    /* Increased from 420px */
     position: relative;
-    /* transition: height 0.3s ease; No fixed height for smoother content changes */
+    min-height: 500px;
+    /* Increased from 300px to give more running space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
@@ -125,6 +131,14 @@ p {
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
+    white-space: normal;
+    /* Allow text wrap for long options */
+    line-height: 1.2;
+    min-height: 50px;
+    /* Ensure touch target size */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .primary-btn {
@@ -165,8 +179,43 @@ p {
     transform: translateY(-2px);
 }
 
-/* No Button Logic */
-#no-btn {
+.disabled-btn {
+    background-color: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+    /* Slightly smaller to fit explanation */
+    white-space: normal;
+    /* Allow text wrap for the long explanation */
+    padding: 10px 20px;
+}
+
+.disabled-btn:hover {
+    transform: none;
+    background-color: #e0e0e0;
+}
+
+/* Grid for the 4-option question */
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+}
+
+.options-grid .btn {
+    margin: 0;
+    /* Remove default margin for grid items */
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+}
+
+/* Runaway Buttons */
+#runaway-btn-1,
+#runaway-btn-2 {
     position: relative;
     /* Default state */
     transition: all 0.2s ease-out;
@@ -264,5 +313,10 @@ p {
     .proposal-buttons {
         display: flex;
         flex-direction: column;
+    }
+
+    .options-grid {
+        grid-template-columns: 1fr;
+        /* Stack on mobile */
     }
 }
