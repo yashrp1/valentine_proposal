@@ -151,3 +151,22 @@ document.addEventListener('mousemove', function (e) {
         moveButton(targetBtn.id);
     }
 });
+
+// Better mobile handling
+function setupMobileRunaway(btnId) {
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+
+    const runaway = (e) => {
+        if (!canRunaway) return;
+        e.preventDefault(); // Stop click/scroll
+        moveButton(btnId);
+    };
+
+    btn.addEventListener('touchstart', runaway, { passive: false });
+}
+
+// Initialize mobile handlers
+document.addEventListener('DOMContentLoaded', () => {
+    setupMobileRunaway('runaway-btn-2');
+});
