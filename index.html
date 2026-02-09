@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Pratyusha ❤️</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Screen 1: Intro -->
+        <div id="screen-1" class="screen active">
+            <h1>Hi Pratyusha! <span class="heart">❤️</span></h1>
+            <p>I have something important to ask you...</p>
+            <button class="btn primary-btn" onclick="nextScreen(2)">What is it?</button>
+        </div>
+
+        <!-- Screen 2: Question 1 -->
+        <div id="screen-2" class="screen">
+            <h1>First, a quick check...</h1>
+            <p>Are you the most beautiful girl in the world?</p>
+            <div class="options">
+                <button class="btn primary-btn" onclick="nextScreen(3)">Obviously! 💁‍♀️</button>
+                <button class="btn secondary-btn" onclick="nextScreen(3)">Maybe... 🙈</button>
+            </div>
+        </div>
+
+        <!-- Screen 3: Question 2 -->
+        <div id="screen-3" class="screen">
+            <h1>Okay, one more...</h1>
+            <p>Do you know how much I love you?</p>
+            <div class="options">
+                <button class="btn primary-btn" onclick="nextScreen(4)">A lot! 💖</button>
+                <button class="btn secondary-btn" onclick="nextScreen(4)">Tell me! 🥰</button>
+            </div>
+        </div>
+
+        <!-- Screen 4: The Proposal -->
+        <div id="screen-4" class="screen">
+            <h1>Pratyusha Roy...</h1>
+            <p>Will you be my Valentine?</p>
+            <div class="proposal-buttons">
+                <button id="yes-btn" class="btn primary-btn" onclick="acceptProposal()">YES! 😍</button>
+                <button id="no-btn" class="btn secondary-btn" onmouseover="moveButton()" onclick="moveButton()"
+                    ontouchstart="moveButton()">No 😜</button>
+            </div>
+        </div>
+
+        <!-- Screen 5: Success -->
+        <div id="screen-5" class="screen">
+            <h1>YAY!!! 🎉❤️</h1>
+            <p>I knew you'd say yes! (You didn't have a choice 😉)</p>
+            <p>I love you so much, Pratyusha!</p>
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMDF4OGJymY2Z1bDg3b2n8t0t3k3o6f3v/26BRv0ThflsKCq2Bu/giphy.gif"
+                alt="Happy Bears" class="celebration-gif">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
