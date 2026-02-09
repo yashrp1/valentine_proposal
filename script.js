@@ -109,3 +109,32 @@ function playMusic() {
         player.playVideo();
     }
 }
+
+// Proximity detection for the "No" button
+document.addEventListener('mousemove', function (e) {
+    const activeScreen = document.querySelector('.screen.active');
+    if (!activeScreen) return;
+
+    // Check for runaway buttons in the active screen
+    const btn1 = document.getElementById('runaway-btn-1');
+    const btn2 = document.getElementById('runaway-btn-2');
+
+    let targetBtn = null;
+    // Only check if the button is actually part of the visible screen
+    if (btn1 && activeScreen.contains(btn1)) targetBtn = btn1;
+    if (btn2 && activeScreen.contains(btn2)) targetBtn = btn2;
+
+    if (!targetBtn) return;
+
+    // Calculate distance between mouse and button center
+    const btnRect = targetBtn.getBoundingClientRect();
+    const btnCenterX = btnRect.left + btnRect.width / 2;
+    const btnCenterY = btnRect.top + btnRect.height / 2;
+
+    const distance = Math.sqrt(Math.pow(e.clientX - btnCenterX, 2) + Math.pow(e.clientY - btnCenterY, 2));
+
+    // If cursor is within 150px (Force Field), move the button
+    if (distance < 150) {
+        moveButton(targetBtn.id);
+    }
+});
