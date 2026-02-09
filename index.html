@@ -24,50 +24,114 @@
         <!-- Screen 1: Intro -->
         <div id="screen-1" class="screen active">
             <h1>Hi Pratyusha! <span class="heart">❤️</span></h1>
-            <p>I have something important to ask you...</p>
-            <button class="btn primary-btn" onclick="nextScreen(2)">What is it?</button>
+            <p>I have a few questions for you...</p>
+            <button class="btn primary-btn" onclick="nextScreen(2); playMusic()">Let's Go! 🚀</button>
         </div>
 
-        <!-- Screen 2: Question 1 -->
+        <!-- Screen 2: Q1 - Seriousness -->
         <div id="screen-2" class="screen">
-            <h1>First, a quick check...</h1>
-            <p>Are you the most beautiful girl in the world?</p>
-            <div class="options">
-                <button class="btn primary-btn" onclick="nextScreen(3)">Obviously! 💁‍♀️</button>
-                <button class="btn secondary-btn" onclick="nextScreen(3)">Maybe... 🙈</button>
+            <h1>Question 1 🧐</h1>
+            <p>How serious are you about us?</p>
+            <div class="options-grid">
+                <button class="btn primary-btn" onclick="nextScreen(3)">Pretty serious 🙂</button>
+                <button class="btn primary-btn" onclick="nextScreen(3)">Serious (see option 1) 😐</button>
+                <button class="btn primary-btn" onclick="nextScreen(3)">Very serious 😄</button>
+                <button class="btn primary-btn" onclick="nextScreen(3)">Lifetime serious 😏</button>
             </div>
         </div>
 
-        <!-- Screen 3: Question 2 -->
+        <!-- Screen 3: Response 1 -->
         <div id="screen-3" class="screen">
-            <h1>Okay, one more...</h1>
-            <p>Do you know how much I love you?</p>
-            <div class="options">
-                <button class="btn primary-btn" onclick="nextScreen(4)">A lot! 💖</button>
-                <button class="btn secondary-btn" onclick="nextScreen(4)">Tell me! 🥰</button>
+            <h1>No Escape! 😈</h1>
+            <p>You really thought there was another option? 🤣 There is NO escape from my love! ❤️</p>
+            <button class="btn primary-btn" onclick="nextScreen(4)">Next Question ➡️</button>
+        </div>
+
+        <!-- Screen 4: Q2 - Love Amount -->
+        <div id="screen-4" class="screen">
+            <h1>Question 2 🥰</h1>
+            <p>How much do you love me?</p>
+            <div class="options-grid">
+                <button class="btn primary-btn" onclick="nextScreen(5)">A lot 😌</button>
+                <button class="btn primary-btn" onclick="nextScreen(5)">More than "a lot" 😐</button>
+                <button class="btn primary-btn" onclick="nextScreen(5)">More than anything 😄</button>
+                <button class="btn primary-btn" onclick="nextScreen(5)">Basically infinite 😏</button>
             </div>
         </div>
 
-        <!-- Screen 4: The Proposal -->
-        <div id="screen-4" class="screen">
+        <!-- Screen 5: Response 2 -->
+        <div id="screen-5" class="screen">
+            <h1>Hehehe! 😎</h1>
+            <p>I knew it! You are obsessed with me! (And I love it! 💖)</p>
+            <button class="btn primary-btn" onclick="nextScreen(6)">Next Question ➡️</button>
+        </div>
+
+        <!-- Screen 6: Q3 - Bestest Boyfriend -->
+        <div id="screen-6" class="screen">
+            <h1>Question 3 😎</h1>
+            <p>Am I the bestest boyfriend?</p>
+            <div class="options-grid">
+                <button class="btn primary-btn" onclick="nextScreen(7)">Yes 😌</button>
+                <button class="btn primary-btn" onclick="nextScreen(7)">Yes (see option 1) 😐</button>
+                <button class="btn primary-btn" onclick="nextScreen(7)">Yes (obviously) 😂</button>
+                <button class="btn primary-btn" onclick="nextScreen(7)">Yes (accepting truth) 😏</button>
+            </div>
+        </div>
+
+        <!-- Screen 7: Response 3 -->
+        <div id="screen-7" class="screen">
+            <h1>Fact Checked: ✅</h1>
+            <p>TRUE. You're stuck with the best! (And I'm stuck with the cutest trouble! 😉)</p>
+            <button class="btn primary-btn" onclick="nextScreen(8)">Next Question ➡️</button>
+        </div>
+
+        <!-- Screen 8: Q4 - Duration -->
+        <div id="screen-8" class="screen">
+            <h1>Question 4 ⏳</h1>
+            <p>How long will you stay with me?</p>
+            <div class="options-grid">
+                <button class="btn primary-btn" onclick="nextScreen(9)">Till my last breath 😌</button>
+                <button class="btn primary-btn" onclick="nextScreen(9)">Lifetime (see opt 1) 😐</button>
+                <button class="btn primary-btn" onclick="nextScreen(9)">Forever (no escape) 🔒</button>
+                <button class="btn primary-btn" onclick="nextScreen(9)">Option 3 😏</button>
+            </div>
+        </div>
+
+        <!-- Screen 9: Response 4 -->
+        <div id="screen-9" class="screen">
+            <h1>Forever & Ever! 🔒</h1>
+            <p>You have to stay with me forever babeee! You signed the contract when you smiled at me! 😘</p>
+            <button class="btn primary-btn" onclick="nextScreen(10)">One last thing... 🌹</button>
+        </div>
+
+        <!-- Screen 10: The Proposal -->
+        <div id="screen-10" class="screen">
             <h1>Pratyusha Roy...</h1>
             <p>Will you be my Valentine?</p>
             <div class="proposal-buttons">
                 <button id="yes-btn" class="btn primary-btn" onclick="acceptProposal()">YES! 😍</button>
-                <button id="no-btn" class="btn secondary-btn" onmouseover="moveButton()" onclick="moveButton()"
-                    ontouchstart="moveButton()">No 😜</button>
+                <button class="btn primary-btn" onclick="acceptProposal()">Absolutely! 💖</button>
+                <button class="btn primary-btn" onclick="acceptProposal()">Of course! ✨</button>
+                <button id="runaway-btn-2" class="btn secondary-btn" onmouseover="moveButton('runaway-btn-2')"
+                    onclick="moveButton('runaway-btn-2')" ontouchstart="moveButton('runaway-btn-2')">No 😜</button>
             </div>
         </div>
 
-        <!-- Screen 5: Success -->
-        <div id="screen-5" class="screen">
-            <h1>YAY!!! 🎉❤️</h1>
-            <p>I knew you'd say yes! (You didn't have a choice 😉)</p>
-            <p>I love you so much, Pratyusha!</p>
+        <!-- Screen 11: Success -->
+        <div id="screen-11" class="screen">
+            <h1>YAYYY! 🎉❤️</h1>
+            <p>You're officially mine forever! No refunds, no returns! Happy Valentine's Day, Pratyusha! 💖</p>
             <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMDF4OGJymY2Z1bDg3b2n8t0t3k3o6f3v/26BRv0ThflsKCq2Bu/giphy.gif"
                 alt="Happy Bears" class="celebration-gif">
         </div>
     </div>
+
+    <!-- Background Music (Hidden) -->
+    <!-- You can replace this link with any mp3 URL you like! -->
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 
     <script src="script.js"></script>
 </body>
